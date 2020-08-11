@@ -8,6 +8,9 @@
 
 export default {
   name: 'page1',
+  mounted(){
+    console.log(this.$route.query.id)
+  }
 }
 </script>
 

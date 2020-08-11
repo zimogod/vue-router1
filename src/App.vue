@@ -11,7 +11,7 @@ export default {
   name: 'App',
   data(){
     return {
-      userInfo:''
+      userInfo:'ffgg'
     }
   },
   created(){
