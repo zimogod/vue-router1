@@ -5,14 +5,21 @@
     <router-link :to="{path:`/details/56`,query:{goodsId:2}}">商品2</router-link> -->
      <div @click="goods1">商品1</div>
      <div @click="goods2">商品2</div>
+     <loop :arr="arr"></loop>
   </div>
 </template>
 
 <script>
+import loop from './client/xiangqing/loop';
 export default {
   name: 'homepage',
+  components:{
+    loop
+  },
   data(){
     return {
+      arr:[5,6,7,8],
+      
       // param:this.$route.params
     }
   },
@@ -30,12 +37,14 @@ export default {
       this.$router.push({
         name:'details',
         params:{info:56},
-        query:{goodsId:2}
+        query:{goodsId:4}
       })
     }
   },
   mounted(){
-   
+  //  this.$http.get(`http://localhost:3001/page?page=${}`).then(res=>{
+  //    console.log(res.data.glist)
+  //  })
   }
 }
 </script>
@@ -45,6 +54,9 @@ export default {
   a{
     display: block;
     text-decoration: none;
+  }
+  .van-swipe__indicators{
+    width:100px;
   }
 }
 </style>
