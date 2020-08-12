@@ -1,7 +1,7 @@
 <template>
   <div class="details">
       <div v-if="param == 34"> 商品1 --的params为：{{ param }}--的query为：{{ quer }}</div>
-      <div v-else> 商品2 --的params为：{{ param }}--的query为：{{ quer }} </div>
+      <div v-else> 商品2啊 --的params为：{{ param }}--的query为：{{ quer }} </div>
   </div>
 </template>
 
