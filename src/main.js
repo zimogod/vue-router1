@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 // 引入
-import router from './router';
+import router from './router1';
 Vue.config.productionTip = false
 // cnpm i vue-router 
 new Vue({
