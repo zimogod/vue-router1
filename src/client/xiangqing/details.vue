@@ -23,9 +23,9 @@ export default {
   },
   mounted(){
     // 后台获取到不同的params参数，返回给前端不同的数据，前端展示到页面上
-    detailsApi.getNewsList().then(res =>{
-      console.log(res,'000')
-    })
+    // detailsApi.getNewsList().then(res =>{
+    //   console.log(res,'000')
+    // })
     detailsApi.getPageData(this.quer).then(res =>{
       console.log(res,'111')
     })

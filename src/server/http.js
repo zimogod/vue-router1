@@ -15,27 +15,36 @@ import http from 'axios';
 // 集成在axios中的
 import qs from 'qs';
 // 线上服务器路径
-let prod_rul ='http://api.cms.liulongbin.top/api';
-// let dev_rul = 'http://localhost:3001';
 // 1 配置公共数据
-// http.defaults.baseURL = 判断条件 ? prod_rul : dev_rul;
-http.defaults.baseURL = prod_rul;
+
+// let objrul = {
+//     prod_rul:'http://api.cms.liulongbin.top/api',
+//     prod_rul:'http://localhost:3001'
+// }
+// for (let key in objrul) {
+//     http.defaults.baseURL = objrul[key];
+// }
+http.defaults.baseURL = 'http://localhost:3001';
 // 网络请求超时
 http.defaults.timeout = 5000;
+// 允许你携带cookie进行跨域
+// http.defaults.withCredentials = true;
 
+let token = JSON.parse(localStorage.getItem('token'));
 // http.interceptors.request.use(config =>{},error =>{})
 
 // 2 配置请求拦截
 http.interceptors.request.use(config =>{
     if(config.method == 'get' || config.method == 'put'){
         config.headers = {
+            'token':`zimo?${token}`,
             'Content-type':'application/json;charset=utf8'
         }
         // 将前端数据转成json字符串传递给服务端
         config.data = qs.stringify(config.data)
     }else if(config.method == 'post' || config.method == 'delete'){
         config.headers = {
-            // 'token':JSON.parse(localStorage.getItem('token')),
+            'token':`zimo?${token}`,
             'Content-type':'application/x-www-form-urlencoded;charset=utf-8'
         }
         // 将前端数据转成json字符串传递给服务端
@@ -44,7 +53,9 @@ http.interceptors.request.use(config =>{
     return config;
 },error =>{
 // 此处是请求时 失败的错误  前端的错误
-    const err = new Error(error);
+    // const err = new Error(error);
+    // 处理错误的语法
+    const err = Promise.reject(error);
     // throw 专门暴露错误的一个语法
     throw err;
 });

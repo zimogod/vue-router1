@@ -5,9 +5,13 @@ import router from './router1';
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 Vue.config.productionTip = false
-// cnpm i vue-router 
+// 全局使用vant
 Vue.use(Vant);
+// 全局使用ElementUI
+Vue.use(ElementUI);
 new Vue({
   el:'#app',
   // 挂载到vue实例上去
