@@ -2,10 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 // 引入
 import router from './router1';
-import http from 'axios';
 import Vant from 'vant';
 import 'vant/lib/index.css';
-Vue.prototype.$http = http;
+
 Vue.config.productionTip = false
 // cnpm i vue-router 
 Vue.use(Vant);
